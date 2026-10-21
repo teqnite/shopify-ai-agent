@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "nodejs";
-export const maxDuration = 180;
-
 type AgentMode = "liquid" | "product";
 
 type AgentRequest = {
@@ -51,7 +48,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. Read Ollama connection settings from environment variables
+    // 2. Read Ollama connection settings from environments variables
     const ollamaBaseUrl = process.env.OLLAMA_BASE_URL?.trim();
     const ollamaUsername = process.env.OLLAMA_USERNAME;
     const ollamaPassword = process.env.OLLAMA_PASSWORD;
