@@ -67,10 +67,10 @@ export async function POST(request: Request) {
     let ollamaUrl: URL;
 
     try {
-      ollamaUrl = new URL(ollamaBaseUrl);
+      ollamaUrl = new URL(ollamaBaseUrl.trim());
     } catch {
       return NextResponse.json(
-        { error: "OLLAMA_BASE_URL must be a valid HTTPS URL." },
+        { error: "OLLAMA_BASE_URL is not a valid URL." },
         { status: 500 },
       );
     }
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "OLLAMA_BASE_URL must be an HTTPS URL without embedded credentials, query parameters, or fragments.",
+            "Invalid Ollama URL. Enter only the HTTPS base URL, without credentials, query parameters, or fragments.",
         },
         { status: 500 },
       );
