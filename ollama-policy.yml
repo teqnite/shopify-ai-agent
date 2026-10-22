@@ -1,0 +1,13 @@
+
+on_http_request:
+  - actions:
+      - type: basic-auth
+        config:
+          realm: ollama
+          credentials:
+            - "shopifyai:test12345"
+          enforce: true
+      - type: add-headers
+        config:
+          headers:
+            host: localhost

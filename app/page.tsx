@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import Link from "next/link";
 
 type AgentMode = "liquid" | "product";
 
@@ -66,10 +67,10 @@ Tone of voice:`;
   return (
     <main className='dashboard'>
       <header className='topbar'>
-        <a className='brand' href='/'>
+        <Link className='brand' href='/'>
           <span className='brand-icon'>S</span>
           Shopify AI Dev
-        </a>
+        </Link>
 
         <span className='local-badge'>
           <span className='status-dot' />
